@@ -19,12 +19,18 @@ public class Cylinder extends Circle {
         this.height = height;
     }
 
+    // Constructor dengan radius, height, dan color
+    public Cylinder(double radius, double height, String color) {
+        super(radius, color); // panggil constructor Circle(radius, color)
+        this.height = height;
+    }
+
     // A public method for retrieving the height
     public double getHeight() {
         return height;
     }
 
-    // ✅ Task 1.2 → Override getArea()
+    //Task 1.2 → Override getArea()
     @Override
     public double getArea() {
         // surface area = 2πrh + 2πr²
@@ -32,9 +38,17 @@ public class Cylinder extends Circle {
              + 2 * super.getArea();                 // 2x luas alas (Circle)
     }
 
-    // ✅ Task 1.2 → Fix getVolume()
+    // Task 1.2 → Fix getVolume()
     public double getVolume() {
         // volume = luas alas × tinggi
         return super.getArea() * height; // pakai getArea() dari Circle
     }
+
+    //task 1.3
+    @Override
+    public String toString() {
+        return "Cylinder: subclass of " + super.toString()  // panggil toString dari Circle
+            + " height=" + height;
+    }
+
 }
